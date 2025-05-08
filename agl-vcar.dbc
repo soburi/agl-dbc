@@ -2,18 +2,18 @@ VERSION "AGL Virtual Car 1.0"
 
 BS_:
 
-BO_ 1001 Vehicle_Status_1: 8 Vector_XXX
-  SG_ PT_VehicleAvgSpeed : 7|15@0+ (0.015625,0) [0|0] "" Vector_XXX
+BO_ 1001 Vehicle_Status_1: 8 VCAR_SIGNAL
+  SG_ PT_VehicleSpeed : 7|15@0+ (0.015625,0) [0|511.984375] "km/h" VCAR_SIGNAL
 
-BO_ 985 Vehicle_Status_2: 8 Vector_XXX
-  SG_ PT_FuelLevelPct : 8|8@1+ (0.392157,0) [0|0] "" Vector_XXX
-  SG_ PT_EngineSpeed : 23|16@0+ (0.25,0) [0|0] "" Vector_XXX
-  SG_ PT_FuelLevelLow : 55|1@1+ (1,0) [0|1] "" Vector_XXX
+BO_ 985 Vehicle_Status_2: 8 VCAR_SIGNAL
+  SG_ PT_FuelLevelPct : 8|8@1+ (0.392157,0) [0|100] "%" VCAR_SIGNAL
+  SG_ PT_EngineSpeed : 23|16@0+ (0.25,0) [0|16383.75] "rpm" VCAR_SIGNAL
+  SG_ PT_FuelLevelLow : 55|1@1+ (1,0) [0|1] "" VCAR_SIGNAL
 
-BO_ 986 Vehicle_Status_3: 8 Vector_XXX
-  SG_ PT_HazardOn : 0|1@1+ (1,0) [0|1] "" Vector_XXX
-  SG_ PT_LeftTurnOn : 1|1@1+ (1,0) [0|1] "" Vector_XXX
-  SG_ PT_RightTurnOn : 2|1@1+ (1,0) [0|1] "" Vector_XXX
+BO_ 986 Vehicle_Status_3: 8 VCAR_SIGNAL
+  SG_ PT_HazardOn : 0|1@1+ (1,0) [0|1] "" VCAR_SIGNAL
+  SG_ PT_LeftTurnOn : 1|1@1+ (1,0) [0|1] "" VCAR_SIGNAL
+  SG_ PT_RightTurnOn : 2|1@1+ (1,0) [0|1] "" VCAR_SIGNAL
 
 BO_ 48 HVAC_Control_1: 8 Vector_XXX
   SG_ PT_TempLeft : 7|8@0+ (0.4166666667,0) [0|100] "C" Vector_XXX
@@ -21,7 +21,7 @@ BO_ 48 HVAC_Control_1: 8 Vector_XXX
   SG_ PT_FanSpeed : 39|8@0+ (0.392157,0) [0|100] "%" Vector_XXX
 
 BO_ 401 Engine: 8 Vector__XXX
- SG_ ThrottlePosition : 63|8@0+ (0.392157,0) [0|100.000035] "%" Vector__XXX
+ SG_ ThrottlePosition : 63|8@0+ (0.392157,0) [0|100] "%" Vector__XXX
  
 BO_ 381 ABS: 8 Vector__XXX
  SG_ VehicleSpeed : 7|12@0+ (0.0625,0) [0|255.9375] "km / h"  ECM_HS,BCM_HS
@@ -67,3 +67,39 @@ BO_ 33 Steering_Wheel: 8 Vector_XXX
   SG_ SW_CruiseDistance : 48|1@1+ (1,0) [0|1] "" Vector_XXX
   SG_ SW_Horn : 63|1@1+ (1,0) [0|1] "" Vector_XXX
   SG_ SW_LaneDepartureWarning : 56|1@1+ (1,0) [0|1] "" Vector_XXX
+
+BO_ 142 BCM_Status: 8 BCM
+ SG_ FrontLeftDoor : 4|1@0+ (1,0) [0|1] ""  BCM
+ SG_ FrontRightDoor : 5|1@0+ (1,0) [0|1] ""  BCM
+ SG_ RearRightDoor : 6|1@0+ (1,0) [0|1] ""  BCM
+ SG_ RearLeftDoor : 7|1@0+ (1,0) [0|1] ""  BCM
+ SG_ LeftSeatBelt : 12|1@0+ (1,0) [0|1] ""  BCM
+ SG_ RightSeatBelt : 13|1@0+ (1,0) [0|1] ""  BCM
+
+BO_ 143 BCM_Status2: 8 BCM
+ SG_ ImmobilizerFaultLamp : 4|1@0+ (1,0) [0|0] ""  BCM
+
+BO_ 180 EV_Powertrain: 8 EVPWR
+ SG_ EV_ShiftPosition : 12|3@0+ (1,0) [0|7] "" EVPWR
+ SG_ EV_MotorFaultLamp : 1|1@0+ (1,0) [0|1] "" EVPWR
+
+BO_ 184 ESP: 8 ESP
+ SG_ EspOffLamp : 31|1@1+ (1,0) [0|1] ""  ESP
+ SG_ AbsFaultLamp : 27|1@1+ (1,0) [0|1] ""  ESP
+ SG_ EspFaultLamp : 6|1@1+ (1,0) [0|1] ""  ESP
+ SG_ BrakeLamp : 3|1@1+ (1,0) [0|1] ""  ESP
+ SG_ AbsBrakeEvent : 2|1@1+ (1,0) [0|1] ""  ESP
+
+VAL_ 184 AbsBrakeEvent 1 "ACTIVE" 0 "NOT_ACTIVE" ;
+VAL_ 184 BrakeLamp 1 "ACTIVE" 0 "NOT_ACTIVE" ;
+VAL_ 184 EspFaultLamp 1 "Fault" 0 "Stable" ;
+VAL_ 184 AbsFaultLamp 1 "Fault" 0 "Stable" ;
+VAL_ 184 EspOffLamp 1 "Off" 0 "On" ;
+
+BO_ 192 EPS_STATUS: 8 EPS
+ SG_ EpsFaultLamp : 6|1@1+ (1,0) [0|1] ""  EPS
+ SG_ EpsEnable : 0|1@1+ (1,0) [0|1] ""  EPS
+
+VAL_ 192 EpsEnable 1 "Enable" 0 "Disable" ;
+VAL_ 192 EpsFaultLamp 1 "Fault" 0 "Stable" ;
+
