@@ -9,6 +9,17 @@ This DBC file defines a minimal set of CAN signals representing a virtual car.
 Note that any changes need to take into account that many of the signals are
 mapped to Vehicle Signal Specification (VSS) signals in various AGL demos.
 
+
+## Recommended tools
+
+### DBC editor/viewer
+
+https://www.csselectronics.com/pages/dbc-editor-can-bus-database
+
+### CAN signal simulation
+
+https://github.com/GENIVI/CANdevStudio
+
 # Support
 
 ## Bug Tracker

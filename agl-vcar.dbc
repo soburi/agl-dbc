@@ -84,22 +84,9 @@ BO_ 180 EV_Powertrain: 8 EVPWR
  SG_ EV_MotorFaultLamp : 1|1@0+ (1,0) [0|1] "" EVPWR
 
 BO_ 184 ESP: 8 ESP
- SG_ EspOffLamp : 31|1@1+ (1,0) [0|1] ""  ESP
- SG_ AbsFaultLamp : 27|1@1+ (1,0) [0|1] ""  ESP
- SG_ EspFaultLamp : 6|1@1+ (1,0) [0|1] ""  ESP
- SG_ BrakeLamp : 3|1@1+ (1,0) [0|1] ""  ESP
- SG_ AbsBrakeEvent : 2|1@1+ (1,0) [0|1] ""  ESP
-
-VAL_ 184 AbsBrakeEvent 1 "ACTIVE" 0 "NOT_ACTIVE" ;
-VAL_ 184 BrakeLamp 1 "ACTIVE" 0 "NOT_ACTIVE" ;
-VAL_ 184 EspFaultLamp 1 "Fault" 0 "Stable" ;
-VAL_ 184 AbsFaultLamp 1 "Fault" 0 "Stable" ;
-VAL_ 184 EspOffLamp 1 "Off" 0 "On" ;
+ SG_ EspOffLamp : 31|1@0+ (1,0) [0|1] ""  ESP
+ SG_ AbsFaultLamp : 27|1@0+ (1,0) [0|1] ""  ESP
+ SG_ EspActLamp : 6|1@0+ (1,0) [0|1] ""  ESP
 
 BO_ 192 EPS_STATUS: 8 EPS
- SG_ EpsFaultLamp : 6|1@1+ (1,0) [0|1] ""  EPS
- SG_ EpsEnable : 0|1@1+ (1,0) [0|1] ""  EPS
-
-VAL_ 192 EpsEnable 1 "Enable" 0 "Disable" ;
-VAL_ 192 EpsFaultLamp 1 "Fault" 0 "Stable" ;
-
+ SG_ EpsFaultLamp : 6|1@0+ (1,0) [0|1] ""  EPS
